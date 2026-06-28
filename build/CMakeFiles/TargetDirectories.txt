@@ -1,0 +1,3 @@
+/Users/vkhans/Desktop/graphics-project/build/CMakeFiles/graphics_project.dir
+/Users/vkhans/Desktop/graphics-project/build/CMakeFiles/edit_cache.dir
+/Users/vkhans/Desktop/graphics-project/build/CMakeFiles/rebuild_cache.dir
