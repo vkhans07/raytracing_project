@@ -2,8 +2,11 @@
 // Created by Vijay Kumar Hans on 6/28/26.
 //
 
-#ifndef GRAPHICS_PROJECT_VEC3_H
-#define GRAPHICS_PROJECT_VEC3_H
+#ifndef VEC3_H
+#define VEC3_H
+
+#include <cmath>
+#include <iostream>
 
 class vec3 {
 public:
@@ -21,7 +24,7 @@ public:
     // self-operators
     vec3 operator-() const { return vec3{-e[0], -e[1], -e[2]}; }
     double operator[](int i) const { return e[i]; }
-    double& operator[](int i) const { return e[i]; }
+    double& operator[](int i) { return e[i]; }
 
     // binary operators
      vec3 operator+=(const vec3& v) {
@@ -59,11 +62,11 @@ inline std::ostream& operator<<(std::ostream& out, const vec3& v) {
     return out << v.e[0] << ' ' << v.e[1] << ' ' << v.e[2];
 }
 
-inline vec3 operator+(const vec3& v, const vec& u) {
+inline vec3 operator+(const vec3& v, const vec3& u) {
     return vec3(v.e[0] + u.e[0], v.e[1] + u.e[1], v.e[2] + u.e[2]);
 }
 
-inline vec3 operator-(const vec3& v, const vec& u) {
+inline vec3 operator-(const vec3& v, const vec3& u) {
     return vec3(v.e[0] - u.e[0], v.e[1] - u.e[1], v.e[2] - u.e[2]);
 }
 
@@ -93,4 +96,4 @@ inline vec3 unit_vector(const vec3& v) {
     return v / v.length();
 }
 
-#endif //GRAPHICS_PROJECT_VEC3_H
+#endif //VEC3_H
