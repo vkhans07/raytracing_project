@@ -10,4 +10,5 @@ add_executable(graphics_project main.cpp
         hittable.h
         sphere.h
         hittable_list.h
-        rtweekend.h)
+        rtweekend.h
+        interval.h)
