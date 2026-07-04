@@ -71,7 +71,7 @@ inline vec3 operator-(const vec3& v, const vec3& u) {
 }
 
 inline vec3 operator*(double x, const vec3& v) {
-    return vec3(x * v.e[0], x * v.e[1], v.e[2]);
+    return vec3(x * v.e[0], x * v.e[1], x * v.e[2]);
 }
 
 inline vec3 operator*(const vec3& v, double x) {
