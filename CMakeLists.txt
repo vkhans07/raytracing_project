@@ -12,4 +12,5 @@ add_executable(graphics_project main.cpp
         hittable_list.h
         rtweekend.h
         interval.h
-        camera.h)
+        camera.h
+        material.h)

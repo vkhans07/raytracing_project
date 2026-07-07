@@ -6,6 +6,7 @@
 #define GRAPHICS_PROJECT_CAMERA_H
 #include "hittable.h"
 #include "interval.h"
+#include "material.h"
 
 class camera {
 public:
@@ -70,9 +71,13 @@ private:
         }
 
         hit_record rec;
+
         if (world.hit(r, interval(0.001, infinity), rec)) {
-            vec3 direction = random_on_hemisphere(rec.normal);
-            return 0.5 * ray_color(ray(rec.p, direction), depth - 1, world);
+            ray scattered;
+            color attenuation;
+            if (rec.mat->scatter(r, rec, attenuation, scattered)) {
+                return attenuation * ray_color(scattered, depth - 1, world);
+            }
         }
 
         vec3 unit_direction = unit_vector(r.direction());
