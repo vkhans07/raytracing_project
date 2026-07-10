@@ -103,7 +103,7 @@ inline double dot(const vec3& v, const vec3& u) {
     return v.e[0] * u.e[0] + v.e[1] * u.e[1] + v.e[2] * u.e[2];
 }
 
-inline vec3 cross(const vec3& v, const vec3& u) {
+inline vec3 cross(const vec3& u, const vec3& v) {
     return vec3(u.e[1] * v.e[2] - u.e[2] * v.e[1],
                 u.e[2] * v.e[0] - u.e[0] * v.e[2],
                 u.e[0] * v.e[1] - u.e[1] * v.e[0]);
@@ -140,7 +140,7 @@ inline vec3 reflect(const vec3& v, const vec3& n) {
 inline vec3 refract(const vec3& uv, const vec3& n, double etai_over_etat) {
     auto cos_theta = std::fmin(dot(-uv, n), 1.0);
     vec3 r_out_perp = etai_over_etat * (uv + cos_theta * n);
-    vec3 r_out_parallel = -std::sqrt(1 - r_out_perp.length_squared()) * n;
+    vec3 r_out_parallel = -std::sqrt(std::fabs(1 - r_out_perp.length_squared())) * n;
     return r_out_perp + r_out_parallel;
 }
 
