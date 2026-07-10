@@ -50,7 +50,7 @@ private:
         auto focal_length = 1.0;
         auto viewport_height = 2.0;
         auto viewport_width = viewport_height * (double(image_width)/image_height);
-        auto center = point3(0,0,0);
+        center = point3(0,0,0);
 
 
         // viewport vectors facilitating navigation
